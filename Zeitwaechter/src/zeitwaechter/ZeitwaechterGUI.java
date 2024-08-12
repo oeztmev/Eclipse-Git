@@ -27,7 +27,8 @@ public class ZeitwaechterGUI {
     public static void main(String[] args) {
         // Hauptfenster erstellen
         JFrame frame = new JFrame("Zeitwächter");
-        frame.setSize(483, 313);
+        frame.setSize(471, 283);
+        frame.setLocationRelativeTo(null);  // Fenster in der Mitte des Bildschirms starten
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // TabbedPane erstellen
@@ -37,7 +38,7 @@ public class ZeitwaechterGUI {
         // Haupt-Tab
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(null);
-        tabbedPane.addTab("Haupt", mainPanel);
+        tabbedPane.addTab("Tool", mainPanel);
 
         // Kommt-Zeit Label
         JLabel kommtZeitLabel = new JLabel("Kommt-Zeit (HH:mm):");
@@ -45,13 +46,8 @@ public class ZeitwaechterGUI {
         mainPanel.add(kommtZeitLabel);
 
         JTextField kommtZeitField = new JTextField();
-        kommtZeitField.setBounds(150, 10, 60, 25);
+        kommtZeitField.setBounds(200, 10, 60, 25);
         mainPanel.add(kommtZeitField);
-
-        // Berechnen Button
-        JButton berechnenButton = new JButton("Berechnen");
-        berechnenButton.setBounds(220, 10, 100, 25);
-        mainPanel.add(berechnenButton);
 
         // Arbeitsbeginn Label
         JLabel arbeitsbeginnLabel = new JLabel("Arbeitsbeginn: ");
@@ -82,15 +78,10 @@ public class ZeitwaechterGUI {
         maxArbeitszeitEndeValue.setBounds(200, 100, 100, 25);
         mainPanel.add(maxArbeitszeitEndeValue);
 
-        // Hinweistext
-        JLabel hinweisLabel = new JLabel("<html>Bitte stellen Sie sicher, dass die oben genannten Zeiten korrekt sind.<br>Die Anwendung dient der Selbstkontrolle.</html>");
-        hinweisLabel.setBounds(20, 130, 450, 40);
-        mainPanel.add(hinweisLabel);
-
         // Digitaluhr (Systemzeit)
         uhrLabel = new JLabel();
         uhrLabel.setFont(new Font("Arial", Font.BOLD, 20));
-        uhrLabel.setBounds(344, 7, 100, 25);
+        uhrLabel.setBounds(351, 1, 89, 37);
         mainPanel.add(uhrLabel);
 
         // Fortschrittsbalken für Arbeitszeit
@@ -116,7 +107,7 @@ public class ZeitwaechterGUI {
                 }
             }
         };
-        progressBar.setBounds(20, 181, 424, 30);
+        progressBar.setBounds(20, 136, 424, 30);
         progressBar.setStringPainted(true);
         progressBar.setForeground(Color.RED);
         mainPanel.add(progressBar);
@@ -127,7 +118,7 @@ public class ZeitwaechterGUI {
         infoLabel.setForeground(Color.BLACK); // Farbe auf Schwarz ändern
         infoLabel.setBackground(Color.WHITE); // Hintergrundfarbe auf Weiß ändern
         infoLabel.setOpaque(true); // Hintergrundfarbe sichtbar machen
-        infoLabel.setBounds(20, 220, 424, 25);
+        infoLabel.setBounds(20, 177, 424, 25);
         mainPanel.add(infoLabel);
 
      // System-Tray-Funktionalität hinzufügen
@@ -171,7 +162,7 @@ public class ZeitwaechterGUI {
         // Benutzerdefinierte Einstellungen Tab
         JPanel settingsPanel = new JPanel();
         settingsPanel.setLayout(null);
-        tabbedPane.addTab("Benutzerdefinierte Einstellungen", settingsPanel);
+        tabbedPane.addTab("Settings", settingsPanel);
 
         // Arbeitszeit (Soll) Label und Feld
         JLabel arbeitszeitLabel = new JLabel("Arbeitszeit (Soll) (HH:mm):");
@@ -209,15 +200,15 @@ public class ZeitwaechterGUI {
         settingsPanel.add(okButton);
         
         JLabel lblNewLabel = new JLabel("Daimler Truck AG");
-        lblNewLabel.setBounds(10, 221, 128, 14);
+        lblNewLabel.setBounds(20, 179, 128, 14);
         settingsPanel.add(lblNewLabel);
         
         JLabel lblNewLabel_1 = new JLabel("T/IEG-A");
-        lblNewLabel_1.setBounds(200, 221, 78, 14);
+        lblNewLabel_1.setBounds(210, 179, 78, 14);
         settingsPanel.add(lblNewLabel_1);
         
         JLabel lblNewLabel_2 = new JLabel("OEZTMEV");
-        lblNewLabel_2.setBounds(375, 221, 60, 14);
+        lblNewLabel_2.setBounds(385, 179, 60, 14);
         settingsPanel.add(lblNewLabel_2);
         
 
@@ -253,10 +244,7 @@ public class ZeitwaechterGUI {
             public void run() {
                 SwingUtilities.invokeLater(() -> updateStatus(kommtZeitField.getText()));
             }
-        }, 0, 1000); // Aktualisiere jede Sekunde
-
-        // Berechnen Button ActionListener
-        berechnenButton.addActionListener(e -> updateStatus(kommtZeitField.getText()));
+        }, 0, 1000);
 
         // Fenster anzeigen
         frame.setVisible(true);
@@ -317,3 +305,5 @@ public class ZeitwaechterGUI {
         }
     }
 }
+
+//test

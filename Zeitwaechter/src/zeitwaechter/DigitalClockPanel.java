@@ -39,4 +39,6 @@ public class DigitalClockPanel extends JPanel {
         timeLabel.setText(now.format(formatter));
     }
 }
-//das ist auch ein 
+
+
+//test
