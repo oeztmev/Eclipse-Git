@@ -27,7 +27,7 @@ public class ZeitwaechterGUI {
     public static void main(String[] args) {
         // Hauptfenster erstellen
         JFrame frame = new JFrame("Zeitwächter");
-        frame.setSize(471, 283);
+        frame.setSize(481, 283);
         frame.setLocationRelativeTo(null);  // Fenster in der Mitte des Bildschirms starten
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -305,5 +305,3 @@ public class ZeitwaechterGUI {
         }
     }
 }
-
-//testdfasdfe77
